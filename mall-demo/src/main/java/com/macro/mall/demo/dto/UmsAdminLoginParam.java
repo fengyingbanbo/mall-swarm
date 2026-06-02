@@ -1,9 +1,8 @@
 package com.macro.mall.demo.dto;
 
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.validator.constraints.NotEmpty;
 
 /**
  * 用户登录参数
@@ -12,8 +11,8 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Getter
 @Setter
 public class UmsAdminLoginParam {
-    @ApiModelProperty(value = "用户名", required = true)
+    @Schema(title = "用户名", required = true)
     private String username;
-    @ApiModelProperty(value = "密码", required = true)
+    @Schema(title = "密码", required = true)
     private String password;
 }

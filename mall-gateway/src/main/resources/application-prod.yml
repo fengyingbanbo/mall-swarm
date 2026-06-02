@@ -1,7 +1,11 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://mall-registry:8001/eureka/
-    registry-fetch-interval-seconds: 10
-  instance:
-    prefer-ip-address: true
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: nacos-registry:8848
+      config:
+        server-addr: nacos-registry:8848
+        file-extension: yaml
+  config:
+    import:
+      - nacos:mall-gateway-prod.yaml?refreshEnabled=true

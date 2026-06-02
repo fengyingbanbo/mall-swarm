@@ -1,6 +1,8 @@
 spring:
   application:
     name: mall-monitor
+  profiles:
+    active: dev
   security: # 配置登录用户名和密码
     user:
       name: macro
@@ -11,9 +13,3 @@ spring:
         ignored-services: ${spring.application.name}
 server:
   port: 8101
-eureka:
-  client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://localhost:8001/eureka/

@@ -1,5 +1,7 @@
 package com.macro.mall.common.api;
 
+import cn.hutool.json.JSONUtil;
+
 /**
  * 通用返回对象
  * Created by macro on 2019/4/19.
@@ -43,6 +45,15 @@ public class CommonResult<T> {
      */
     public static <T> CommonResult<T> failed(IErrorCode errorCode) {
         return new CommonResult<T>(errorCode.getCode(), errorCode.getMessage(), null);
+    }
+
+    /**
+     * 失败返回结果
+     * @param errorCode 错误码
+     * @param message 错误信息
+     */
+    public static <T> CommonResult<T> failed(IErrorCode errorCode,String message) {
+        return new CommonResult<T>(errorCode.getCode(), message, null);
     }
 
     /**
@@ -111,5 +122,10 @@ public class CommonResult<T> {
 
     public void setData(T data) {
         this.data = data;
+    }
+
+    @Override
+    public String toString() {
+        return JSONUtil.toJsonStr(this);
     }
 }

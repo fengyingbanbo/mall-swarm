@@ -1,5 +1,11 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://localhost:8001/eureka/
-    registry-fetch-interval-seconds: 10
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+      config:
+        server-addr: localhost:8848
+        file-extension: yaml
+  config:
+    import:
+      - nacos:mall-gateway-dev.yaml?refreshEnabled=true
